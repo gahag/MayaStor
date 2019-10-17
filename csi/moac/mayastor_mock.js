@@ -12,7 +12,7 @@ const STAT_DELTA = 1000;
 class MayastorServer {
   constructor(endpoint, pools, replicas, nexus) {
     var packageDefinition = protoLoader.loadSync(
-      path.join(__dirname, '../', '../rpc', 'proto', 'mayastor_service.proto'),
+      path.join(__dirname, 'proto', 'mayastor_service.proto'),
       {
         keepCase: false,
         longs: String,

@@ -30,3 +30,7 @@ script:
   - echo $glibcLocales
   - export LOCALE_ARCHIVE_2_27="${glibcLocales}/lib/locale/locale-archive"
   - nix-shell --run ./test.sh
+  # this will build moac package and place it to our PATH
+  - cd csi/moac && npm --version && ulimit -a && nix-env -f default.nix -iA package
+  - cd $(dirname $(readlink -f `which moac`))
+  - node_modules/mocha/bin/mocha test.js
